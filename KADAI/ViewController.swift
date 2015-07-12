@@ -9,41 +9,336 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var myLabel: UILabel!
 
+    
+        //配列名(number): 型(String)で配列
+        var number: [String] = ["1","2","3","4"]
+        
+        //配列にしたものをランダムにする
+        var myRundom = String(arc4random_uniform(4)+1)
+        var myRundom2 = String(arc4random_uniform(4)+1)
+        var myRundom3 = String(arc4random_uniform(4)+1)
+        var myRundom4 = String(arc4random_uniform(4)+1)
+    
+        var operation:Int = 0
+        var tapCount: Int = 0
+
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        //ラベルに最初に表示する文字
-        myLabel.text = "(x,y,a,b)"
-        
-        //乱数発生
-        var myRundom = ["x","y","a","b"]
-        //整数の場合はIntを指定
-        var ran = 1 + Int(arc4random_uniform(4))
 
         
-        //ラベルに表示
-        myLabel.text = myRundom[ran]
-        // Do any additional setup after loading the view, typically from a nib.
+        //ラベルにランダムにした４桁の数字を表示
+        myLabel.text = String (stringInterpolation: myRundom,myRundom2,myRundom3,myRundom4)
+        myLabel.textColor = UIColor.redColor()
+        self.tapCount = 0 // カウント
+
+        
+
+
+        // myRundom1~4にきちんと入っているか確認
+        println(myRundom)
+        println(myRundom2)
+        println(myRundom3)
+        println(myRundom4)
+
+
+        
     }
     
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    @IBOutlet var myLabel: UILabel!
+            }
+    
     
     
 
     @IBAction func one(sender: AnyObject) {
+        //タップ回数を加算
+        self.tapCount++
+if tapCount == 1 {
+     if myRundom == "1"{
+                 number.removeAtIndex(0)
+                 myLabel.text = String (stringInterpolation:myRundom2,myRundom3,myRundom4)
+    }
+}else if tapCount == 2 {
+            if myRundom2 == "1"{
+                         number.removeAtIndex(0)
+                         myLabel.text = String (stringInterpolation:myRundom3,myRundom4)
+            }
+}else if tapCount == 3 {
+                       if  myRundom3 == "1"{
+                                     number.removeAtIndex(0)
+                                     myLabel.text = String (stringInterpolation:myRundom4)
+            }
+}else if tapCount == 4 {
+                          if myRundom4 == "1"{
+                                       number.removeLast()
+                                       myLabel.text = String(0)
+                }
+}else if tapCount == 2 {
+            }else if myRundom3 == "1"{
+                               number.removeAtIndex(0)
+                               myLabel.text = String (stringInterpolation:myRundom4)
+}else if tapCount == 3 {
+                             if myRundom4 == "1"{
+                                          number.removeLast()
+                                          myLabel.text = String(0)
+                }
+}else if tapCount == 2 {
+            } else if myRundom4 == "1"{
+                                number.removeLast()
+                                myLabel.text = String(0)
+}else if tapCount == 1 {
+      } else if myRundom2 == "1"{
+                          number.removeAtIndex(0)
+                          myLabel.text = String (stringInterpolation:myRundom3,myRundom4)
+}else if tapCount == 2 {
+                      if myRundom3 == "1"{
+                                   number.removeAtIndex(0)
+                                   myLabel.text = String (stringInterpolation:myRundom4)
+}else if tapCount == 3{
+                     if  myRundom4 == "1"{
+                                   number.removeLast()
+                                   myLabel.text = String(0)
+                }
+            } else if myRundom4 == "1"{
+                number.removeLast()
+                myLabel.text = String(0)
+}else if tapCount == 1 {
+      } else if myRundom3 == "1"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom4)
+}else if tapCount == 2 {
+                      if myRundom4 == "1"{
+                                   number.removeLast()
+                                   myLabel.text = String(0)
+            }
+}else if tapCount == 1 {
+      } else if myRundom4 == "1"{
+            number.removeLast()
+            myLabel.text = String(0)
+        }
+        }
+        
     }
     @IBAction func two(sender: AnyObject) {
+        //タップ回数を加算
+        self.tapCount++
+        if tapCount == 1 {
+            if myRundom == "2"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom2,myRundom3,myRundom4)
+            }
+        }else if tapCount == 2 {
+            if myRundom2 == "2"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom3,myRundom4)
+            }
+        }else if tapCount == 3 {
+            if  myRundom3 == "2"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom4)
+            }
+        }else if tapCount == 4 {
+            if myRundom4 == "2"{
+                number.removeLast()
+                myLabel.text = String(0)
+            }
+        }else if tapCount == 2 {
+        }else if myRundom3 == "2"{
+            number.removeAtIndex(0)
+            myLabel.text = String (stringInterpolation:myRundom4)
+        }else if tapCount == 3 {
+            if myRundom4 == "2"{
+                number.removeLast()
+                myLabel.text = String(0)
+            }
+        }else if tapCount == 2 {
+        } else if myRundom4 == "2"{
+            number.removeLast()
+            myLabel.text = String(0)
+        }else if tapCount == 1 {
+        } else if myRundom2 == "2"{
+            number.removeAtIndex(0)
+            myLabel.text = String (stringInterpolation:myRundom3,myRundom4)
+        }else if tapCount == 2 {
+            if myRundom3 == "2"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom4)
+            }else if tapCount == 3{
+                if  myRundom4 == "2"{
+                    number.removeLast()
+                    myLabel.text = String(0)
+                }
+            } else if myRundom4 == "2"{
+                number.removeLast()
+                myLabel.text = String(0)
+            }else if tapCount == 1 {
+            } else if myRundom3 == "2"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom4)
+            }else if tapCount == 2 {
+                if myRundom4 == "2"{
+                    number.removeLast()
+                    myLabel.text = String(0)
+                }
+            }else if tapCount == 1 {
+            } else if myRundom4 == "2"{
+                number.removeLast()
+                myLabel.text = String(0)
+            }
+        }
+        
     }
     @IBAction func three(sender: AnyObject) {
+        //タップ回数を加算
+        self.tapCount++
+        if tapCount == 1 {
+            if myRundom == "3"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom2,myRundom3,myRundom4)
+            }
+        }else if tapCount == 2 {
+            if myRundom2 == "3"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom3,myRundom4)
+            }
+        }else if tapCount == 3 {
+            if  myRundom3 == "3"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom4)
+            }
+        }else if tapCount == 4 {
+            if myRundom4 == "3"{
+                number.removeLast()
+                myLabel.text = String(0)
+            }
+        }else if tapCount == 2 {
+        }else if myRundom3 == "3"{
+            number.removeAtIndex(0)
+            myLabel.text = String (stringInterpolation:myRundom4)
+        }else if tapCount == 3 {
+            if myRundom4 == "3"{
+                number.removeLast()
+                myLabel.text = String(0)
+            }
+        }else if tapCount == 2 {
+        } else if myRundom4 == "3"{
+            number.removeLast()
+            myLabel.text = String(0)
+        }else if tapCount == 1 {
+        } else if myRundom2 == "3"{
+            number.removeAtIndex(0)
+            myLabel.text = String (stringInterpolation:myRundom3,myRundom4)
+        }else if tapCount == 2 {
+            if myRundom3 == "3"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom4)
+            }else if tapCount == 3{
+                if  myRundom4 == "3"{
+                    number.removeLast()
+                    myLabel.text = String(0)
+                }
+            } else if myRundom4 == "3"{
+                number.removeLast()
+                myLabel.text = String(0)
+            }else if tapCount == 1 {
+            } else if myRundom3 == "3"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom4)
+            }else if tapCount == 2 {
+                if myRundom4 == "3"{
+                    number.removeLast()
+                    myLabel.text = String(0)
+                }
+            }else if tapCount == 1 {
+            } else if myRundom4 == "3"{
+                number.removeLast()
+                myLabel.text = String(0)
+            }
+        }
+        
+    
     }
     @IBAction func four(sender: AnyObject) {
+        //タップ回数を加算
+        self.tapCount++
+        if tapCount == 1 {
+            if myRundom == "4"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom2,myRundom3,myRundom4)
+            }
+        }else if tapCount == 2 {
+            if myRundom2 == "4"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom3,myRundom4)
+            }
+        }else if tapCount == 3 {
+            if  myRundom3 == "4"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom4)
+            }
+        }else if tapCount == 4 {
+            if myRundom4 == "4"{
+                number.removeLast()
+                myLabel.text = String(0)
+            }
+        }else if tapCount == 2 {
+        }else if myRundom3 == "4"{
+            number.removeAtIndex(0)
+            myLabel.text = String (stringInterpolation:myRundom4)
+        }else if tapCount == 3 {
+            if myRundom4 == "4"{
+                number.removeLast()
+                myLabel.text = String(0)
+            }
+        }else if tapCount == 2 {
+        } else if myRundom4 == "4"{
+            number.removeLast()
+            myLabel.text = String(0)
+        }else if tapCount == 1 {
+        } else if myRundom2 == "4"{
+            number.removeAtIndex(0)
+            myLabel.text = String (stringInterpolation:myRundom3,myRundom4)
+        }else if tapCount == 2 {
+            if myRundom3 == "4"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom4)
+            }else if tapCount == 3{
+                if  myRundom4 == "4"{
+                    number.removeLast()
+                    myLabel.text = String(0)
+                }
+            } else if myRundom4 == "4"{
+                number.removeLast()
+                myLabel.text = String(0)
+            }else if tapCount == 1 {
+            } else if myRundom3 == "4"{
+                number.removeAtIndex(0)
+                myLabel.text = String (stringInterpolation:myRundom4)
+            }else if tapCount == 2 {
+                if myRundom4 == "4"{
+                    number.removeLast()
+                    myLabel.text = String(0)
+                }
+            }else if tapCount == 1 {
+            } else if myRundom4 == "4"{
+                number.removeLast()
+                myLabel.text = String(0)
+            }
+        }
+        
+        
+
+
     }
     
 }
